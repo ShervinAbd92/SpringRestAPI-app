@@ -34,7 +34,8 @@ public class StripePaymentService implements PaymentGateway {
                     .setMode(SessionCreateParams.Mode.PAYMENT)
                     .setSuccessUrl(websiteUrl + "/checkout-success?orderId="+ order.getId()) //the URL that stripe will redirect the client if payment is succesful
                     .setCancelUrl(websiteUrl +"/checkout-cancel")
-                    .putMetadata("order_id", order.getId().toString());
+                    .setPaymentIntentData(createPaymentIntent(order)
+                        );
 
             //add orderItems to this builder, by going through order's item and create LineItem
             order.getItems().forEach(item -> {
@@ -49,6 +50,11 @@ public class StripePaymentService implements PaymentGateway {
             System.out.println(e.getMessage());
             throw new PaymentException(); //general purpose expeciotn
         }
+    }
+
+    private static SessionCreateParams.PaymentIntentData createPaymentIntent(Order order) {
+        return SessionCreateParams.PaymentIntentData.builder()
+                .putMetadata("order_id", order.getId().toString()).build();
     }
 
     @Override
