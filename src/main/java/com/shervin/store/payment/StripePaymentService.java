@@ -44,7 +44,7 @@ public class StripePaymentService implements PaymentGateway {
             });
             // finally, create SessionCreateParam which we then feed into Session
             var session = Session.create(builder.build());
-            return new CheckoutSession(session.getId());
+            return new CheckoutSession(session.getUrl());
         }
         catch (StripeException e){
             System.out.println(e.getMessage());
