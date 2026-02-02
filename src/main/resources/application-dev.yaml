@@ -6,3 +6,10 @@ spring:
   jpa:
     show-sql: true
 websiteURL: "http://localhost:4242"
+logging:
+  level:
+    root: INFO
+    com.shervin.store: DEBUG
+    org.springframework.security: DEBUG
+  file:
+    name: logs/app.log

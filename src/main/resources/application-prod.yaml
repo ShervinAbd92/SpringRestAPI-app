@@ -3,3 +3,8 @@ spring:
     url: ${SPRING_DATASOURCE_URL}
 
 websiteURL: https://shervinstore.com
+logging:
+  level:
+    root: INFO
+    com.shervin.store: INFO
+    org.springframework.security: WARN
