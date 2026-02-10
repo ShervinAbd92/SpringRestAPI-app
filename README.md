@@ -1,4 +1,4 @@
-# SpringRestAPI-app — E-Commerce REST API (Spring Boot, JWT, Stripe)
+# E-Commerce RESTful API 
 
 A production-style **e-commerce REST API** built with **Java and Spring Boot**, simulating a complete online shopping experience.  
 The application supports secure user authentication, cart and order management, Stripe-based checkout, and webhook-driven payment confirmation.  
